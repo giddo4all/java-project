@@ -1,6 +1,5 @@
-properties([pipelineTriggers([githubPush()])])
-
-node('linux') {   
+pipeline{
+	agent any 
 	stage('Test') {    
 		echo "Thank You"   
 	}
