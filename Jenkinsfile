@@ -5,14 +5,16 @@ node('linux') {
         sh "ant -f test.xml -v"
     }
     stage('Build') {
-        sh "ls -la"
+        sh "ant -f build.xml -v"
     }
      stage('Deploy') {
         sh "pwd"
     }
         stage('Report') {
-        sh "env"
-        sh "ls -la"
+        sh "env | sort"
+        sh "ls -la"   
+        sh "ls -la ${WORKSPACE}/reports
+        sh "ls -la ${WORKSPACE}/src
             
     }
 }
