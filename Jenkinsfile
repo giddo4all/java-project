@@ -7,7 +7,7 @@ node('linux') {
     }
      stage('Deploy') {
          withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '8b04e9ea-b46b-4877-9542-9f32a877929a', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-         sh "aws s3 cp ${WORKSPACE}/dist/rectangle-${BUILD_NUMBER}.jar s3://ainajenkins/rectangle-${BUILD_NUMBER}.jar"
+         sh "aws s3 cp ${WORKSPACE}/dist/rectangle-${BUILD_NUMBER}.jar s3://ainajekins/rectangle-${BUILD_NUMBER}.jar"
          }
     }
      stage('Report') {
