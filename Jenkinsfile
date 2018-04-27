@@ -1,4 +1,4 @@
-properties([pipelineTriggers([githubPush()])])
+//properties([pipelineTriggers([githubPush()])])
 node('linux') {
     //git url: 'https://github.com/giddo4all/infrastructure-pipeline.git', branch: 'master'
     stage('Unit Tests') {
