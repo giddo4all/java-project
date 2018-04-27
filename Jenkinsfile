@@ -1,7 +1,16 @@
 properties([pipelineTriggers([githubPush()])])
 node('linux') {
     git url: 'https://github.com/giddo4all/java-project.git', branch: 'master'
-    stage('Test') {
+    stage('Unit Tests') {
         sh "env"
+    }
+    stage('Build') {
+        sh "la -la"
+    }
+     stage('Deploy') {
+        sh "pwd"
+    }
+        stage('Report') {
+        echo "LastCard"
     }
 }
