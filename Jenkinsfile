@@ -8,13 +8,14 @@ node('linux') {
         sh "ant -f build.xml -v"
     }
      stage('Deploy') {
-         sh "aws s3 cp ${WORKSPACE}/src/Rectangle.java https://s3.amazonaws.com/ainajenkins/Rectangle-${BUILD_NUMBER}.java"
+         sh "ls -la ${WORKSPACE}/bin"
+         sh "aws s3 cp ${WORKSPACE}/src/rectangle.jar s3.amazonaws.com/ainajenkins/rectangle-${BUILD_NUMBER}.jar"
     }
         stage('Report') {
         sh "env | sort"
         sh "ls -la"   
         sh "ls -la ${WORKSPACE}/reports"
-        sh "ls -la ${WORKSPACE}/src"
+        sh "ls -la ${WORKSPACE}/bin"
             
     }
 }
