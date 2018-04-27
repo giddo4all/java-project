@@ -8,7 +8,7 @@ node('linux') {
         sh "ant -f build.xml -v"
     }
      stage('Deploy') {
-        sh "pwd"
+         sh "aws cp ${WORKSPACE}/src/Rectangle.java https://s3.amazonaws.com/ainajenkins/Rectangle-${BUILD_NUMBER}.java"
     }
         stage('Report') {
         sh "env | sort"
