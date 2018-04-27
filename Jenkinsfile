@@ -8,8 +8,8 @@ node('linux') {
         sh "ant -f build.xml -v"
     }
      stage('Deploy') {
-         sh "ls -la ${WORKSPACE}/bin"
-         sh "aws s3 cp ${WORKSPACE}/src/rectangle.jar s3.amazonaws.com/ainajenkins/rectangle-${BUILD_NUMBER}.jar"
+         sh "ls -la ${WORKSPACE}/dist"
+         sh "aws s3 cp ${WORKSPACE}/dist/rectangle-${BUILD_NUMBER}.jar s3://ainajenkins/rectangle-${BUILD_NUMBER}.jar"
     }
         stage('Report') {
         sh "env | sort"
