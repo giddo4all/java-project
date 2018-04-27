@@ -1,6 +1,6 @@
 //properties([pipelineTriggers([githubPush()])])
 node('linux') {
-    git url: 'https://github.com/giddo4all/java-project.git', branch: 'master'
+    //git url: 'https://github.com/giddo4all/java-project.git', branch: 'master'
     stage('Unit Tests') {
         sh "ant -f test.xml -v"
     }
