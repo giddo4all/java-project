@@ -1,4 +1,6 @@
+properties([pipelineTriggers([githubPush()])])
 node('linux') {
+    git url: 'https://github.com/jasondbaker/infrastructure-pipeline.git', branch: 'master'
     stage('Unit Tests') {
         sh "ant -f test.xml -v"
     }
