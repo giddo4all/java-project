@@ -1,4 +1,5 @@
 Started by GitHub push by giddo4all
+Started by GitHub push by giddo4all
 Obtained Jenkinsfile from git https://github.com/giddo4all/java-project.git
 Running in Durability level: MAX_SURVIVABILITY
 [Pipeline] node
@@ -76,13 +77,13 @@ test:
     [junit] 'threadid=0'
     [junit] 'logtestlistenerevents=false'
     [junit] 'formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/workspace/java-pipeline/reports/result.xml'
-    [junit] 'crashfile=/workspace/java-pipeline/junitvmwatcher2090569136395962540.properties'
-    [junit] 'propsfile=/workspace/java-pipeline/junit1996886778312971718.properties'
+    [junit] 'crashfile=/workspace/java-pipeline/junitvmwatcher1653597609960403196.properties'
+    [junit] 'propsfile=/workspace/java-pipeline/junit5081250959227020107.properties'
     [junit] 
     [junit] The ' characters around the executable and arguments are
     [junit] not part of the command.
     [junit] Running RectangleTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec
     [junit] Starting test thread 0
     [junit] Ending test thread 0
 
@@ -115,7 +116,7 @@ clean:
    [delete] Deleting /workspace/java-pipeline/bin/RectangleTest.class
    [delete] Deleting directory /workspace/java-pipeline/bin
    [delete] Deleting directory /workspace/java-pipeline/dist
-   [delete] Deleting /workspace/java-pipeline/dist/rectangle-20.jar
+   [delete] Deleting /workspace/java-pipeline/dist/rectangle-37.jar
    [delete] Deleting directory /workspace/java-pipeline/dist
 
 makedir:
@@ -147,7 +148,7 @@ dropping /workspace/java-pipeline/usr/share/java/apache-ant/lib/junit.jar from p
     [javac]     /workspace/java-pipeline/src/Rectangulator.java
 
 jar:
-      [jar] Building jar: /workspace/java-pipeline/dist/rectangle-21.jar
+      [jar] Building jar: /workspace/java-pipeline/dist/rectangle-38.jar
       [jar] adding directory META-INF/
       [jar] adding entry META-INF/MANIFEST.MF
       [jar] adding entry Rectangle.class
@@ -164,15 +165,21 @@ Total time: 1 second
 [Pipeline] // stage
 [Pipeline] stage
 [Pipeline] { (Deploy)
+[Pipeline] withCredentials
+[Pipeline] {
 [Pipeline] sh
 [java-pipeline] Running shell script
-+ aws s3 cp /workspace/java-pipeline/dist/rectangle-21.jar s3://ainajenkins/rectangle-21.jar
-Completed 1.8 KiB/1.8 KiB (23.5 KiB/s) with 1 file(s) remaining
-upload: dist/rectangle-21.jar to s3://ainajenkins/rectangle-21.jar
++ aws s3 cp /workspace/java-pipeline/dist/rectangle-38.jar s3://ainajekins/rectangle-38.jar
+Completed 1.8 KiB/1.8 KiB (22.4 KiB/s) with 1 file(s) remaining
+upload: dist/rectangle-38.jar to s3://ainajekins/rectangle-38.jar
+[Pipeline] }
+[Pipeline] // withCredentials
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
 [Pipeline] { (Report)
+[Pipeline] withCredentials
+[Pipeline] {
 [Pipeline] sh
 [java-pipeline] Running shell script
 + aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins
@@ -315,6 +322,8 @@ upload: dist/rectangle-21.jar to s3://ainajenkins/rectangle-21.jar
         }
     ]
 }
+[Pipeline] }
+[Pipeline] // withCredentials
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] }
