@@ -13,8 +13,8 @@ node('linux') {
         stage('Report') {
         sh "env | sort"
         sh "ls -la"   
-        sh "ls -la ${WORKSPACE}/reports
-        sh "ls -la ${WORKSPACE}/src
+        sh "ls -la ${WORKSPACE}/reports"
+        sh "ls -la ${WORKSPACE}/src"
             
     }
 }
