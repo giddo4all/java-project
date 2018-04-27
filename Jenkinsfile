@@ -5,7 +5,7 @@ node('linux') {
         sh "env"
     }
     stage('Build') {
-        sh "la -la"
+        sh "ls -la"
     }
      stage('Deploy') {
         sh "pwd"
