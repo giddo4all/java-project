@@ -2,9 +2,27 @@ Started by GitHub push by giddo4all
 Started by GitHub push by giddo4all
 Obtained Jenkinsfile from git https://github.com/giddo4all/java-project.git
 Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] properties
 [Pipeline] node
 Running on cc80a29c3bc7 in /workspace/java-pipeline
 [Pipeline] {
+[Pipeline] git
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/giddo4all/java-project.git # timeout=10
+Fetching upstream changes from https://github.com/giddo4all/java-project.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/giddo4all/java-project.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 6cd1035999c903142039900a05991c8876658260 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 6cd1035999c903142039900a05991c8876658260
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master 6cd1035999c903142039900a05991c8876658260
+Commit message: "Update README.md"
+ > git rev-list --no-walk 8b735446a782d7b6552d7287ff3e4fdfb3e15417 # timeout=10
 [Pipeline] stage
 [Pipeline] { (Unit Tests)
 [Pipeline] sh
@@ -77,13 +95,13 @@ test:
     [junit] 'threadid=0'
     [junit] 'logtestlistenerevents=false'
     [junit] 'formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/workspace/java-pipeline/reports/result.xml'
-    [junit] 'crashfile=/workspace/java-pipeline/junitvmwatcher1653597609960403196.properties'
-    [junit] 'propsfile=/workspace/java-pipeline/junit5081250959227020107.properties'
+    [junit] 'crashfile=/workspace/java-pipeline/junitvmwatcher6770998833181577336.properties'
+    [junit] 'propsfile=/workspace/java-pipeline/junit1714377595821103858.properties'
     [junit] 
     [junit] The ' characters around the executable and arguments are
     [junit] not part of the command.
     [junit] Running RectangleTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec
     [junit] Starting test thread 0
     [junit] Ending test thread 0
 
@@ -116,7 +134,7 @@ clean:
    [delete] Deleting /workspace/java-pipeline/bin/RectangleTest.class
    [delete] Deleting directory /workspace/java-pipeline/bin
    [delete] Deleting directory /workspace/java-pipeline/dist
-   [delete] Deleting /workspace/java-pipeline/dist/rectangle-37.jar
+   [delete] Deleting /workspace/java-pipeline/dist/rectangle-51.jar
    [delete] Deleting directory /workspace/java-pipeline/dist
 
 makedir:
@@ -148,7 +166,7 @@ dropping /workspace/java-pipeline/usr/share/java/apache-ant/lib/junit.jar from p
     [javac]     /workspace/java-pipeline/src/Rectangulator.java
 
 jar:
-      [jar] Building jar: /workspace/java-pipeline/dist/rectangle-38.jar
+      [jar] Building jar: /workspace/java-pipeline/dist/rectangle-52.jar
       [jar] adding directory META-INF/
       [jar] adding entry META-INF/MANIFEST.MF
       [jar] adding entry Rectangle.class
@@ -169,9 +187,9 @@ Total time: 1 second
 [Pipeline] {
 [Pipeline] sh
 [java-pipeline] Running shell script
-+ aws s3 cp /workspace/java-pipeline/dist/rectangle-38.jar s3://ainajekins/rectangle-38.jar
-Completed 1.8 KiB/1.8 KiB (22.4 KiB/s) with 1 file(s) remaining
-upload: dist/rectangle-38.jar to s3://ainajekins/rectangle-38.jar
++ aws s3 cp /workspace/java-pipeline/dist/rectangle-52.jar s3://ainajekins/rectangle-52.jar
+Completed 1.8 KiB/1.8 KiB (11.8 KiB/s) with 1 file(s) remaining
+upload: dist/rectangle-52.jar to s3://ainajekins/rectangle-52.jar
 [Pipeline] }
 [Pipeline] // withCredentials
 [Pipeline] }
