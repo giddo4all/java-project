@@ -1,9 +1,9 @@
 
 def slackMsg(){
 
-    echo pwd()
-	    sh ("ls -la")
-	    sh("ls -la ../")
+    //echo pwd()
+	    //sh ("ls -la")
+	   // sh("ls -la ../")
 	def ny = 'gideon.aina@test.com'
 	slackSend color: '#00FF00', message: getBuildStatus() +"\n " + getUserMentionID(ny)
 }
@@ -19,6 +19,7 @@ def getBuildStatus() {
 
 def getUserMentionID(key){
 	def slk = load 'mention.slack'
+	echo slk
 	def userMentionMap = slk.inject([:])
 //	def userMentionMap = [
 	//('gideon.aina@test.com'): '<@U85FWQDFW>'
