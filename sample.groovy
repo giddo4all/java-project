@@ -18,9 +18,10 @@ def getBuildStatus() {
 }
 
 def getUserMentionID(key){
-def userMentionMap = [
-//def slk = load 'mention.slack'
-('gideon.aina@test.com'): '<@U85FWQDFW>'
+	def slk = load 'mention.slack'
+	def userMentionMap = [
+	//('gideon.aina@test.com'): '<@U85FWQDFW>'
+		slk
 ]
 return userMentionMap.get(key)
 }
