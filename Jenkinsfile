@@ -16,6 +16,7 @@ node('linux') {
    } catch (Exception e) {
   currentBuild.result = 'FAILURE'   
 } finally {
+	 echo pwd()
 	def slk = load 'sample.groovy'
 	slk.slackMsg()
 }
