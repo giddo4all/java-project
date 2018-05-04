@@ -18,8 +18,8 @@ node('linux') {
 } finally {
     echo pwd()
 	    sh ("ls -la")
-	    sh("ls -la ../)
-    slackSend('#00FFFF' : colorCode, baseUrl : 'https://seis-602-pos-project.slack.com/services/hooks/jenkins-ci/', tokenCredentialId: 'kiwbZmTVIMmWlQUBmay6Ainb', channel: '#symtest', message: "Sent slack message")
+	    sh("ls -la ../")
+    slackSend(color : '#00FFFF', baseUrl : 'https://seis-602-pos-project.slack.com/services/hooks/jenkins-ci/', tokenCredentialId: 'kiwbZmTVIMmWlQUBmay6Ainb', channel: '#symtest', message: "Sent slack message")
 }
            
 }
