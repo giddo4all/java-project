@@ -39,7 +39,7 @@ def getUserMentionID(key){
 	
 	def theList = slk
 	echo slk
-	echp"%%%%%%%%%%%%%%%%"
+	echo"%%%%%%%%%%%%%%%%"
 	//echo slk.getText()
 theResult = theList.inject([:])
 {
