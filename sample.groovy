@@ -19,7 +19,7 @@ def getBuildStatus() {
 
 def getUserMentionID(key){
 	//def slk = load 'mention.slack'
-	def slk = readFile 'mention.slack'
+	def slk = readFile encoding: 'UTF-8', file: 'mention.slack'
 	echo slk
 	def userMentionMap = slk
 	//def userMentionMap = slk.inject([:])
@@ -27,6 +27,7 @@ def getUserMentionID(key){
 	//('gideon.aina@test.com'): '<@U85FWQDFW>'
 //		slk
 //]
+	echo userMentionMap
 return userMentionMap.get(key)
 }
 
