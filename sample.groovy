@@ -4,7 +4,8 @@ def slackMsg(){
     echo pwd()
 	    sh ("ls -la")
 	    sh("ls -la ../")
-    slackSend color: '#00FF00', message: getBuildStatus()
+	def ny = 'gideon.aina@test.com'
+	slackSend color: '#00FF00', message: getBuildStatus() +"\n " + getUserMentionID(ny)
 }
 return this
 
@@ -14,5 +15,13 @@ def getBuildStatus() {
     if (currentBuild?.getPreviousBuild()?.resultIsWorseOrEqualTo('FAILURE') && currentBuild.currentResult == "FAILURE") {stat = 'STILL_FAILING'}
     if (currentBuild?.getPreviousBuild()?.result == 'UNSTABLE' && currentBuild.currentResult == "SUCCESS") {stat = 'BUILD_STABLE'}
     return stat
+}
+
+def getUserMentionID(key){
+def userMentionMap = [
+//def slk = load 'mention.slack'
+('gideon.aina@thingworx.com'): '<@U85FWQDFW>'
+]
+return userMentionMap.get(key)
 }
 
