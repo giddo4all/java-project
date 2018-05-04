@@ -23,7 +23,11 @@ def getUserMentionID(key){
 	//sh("cat ${slk}")
 	def slkID = sh(returnStdout: true, script: "cat mention.slack")
 	
-	def theList = slkID
+	def theList =  [
+ "gideon.aina@test.com, <@U85FWQDFW>",
+ "surjan, <@U85F7PHEF>",
+ "slack bot, <@USLACKBOT>"
+ ]
 	theResult = theList.inject([:])
 	{
     		theMap, theListItem ->
