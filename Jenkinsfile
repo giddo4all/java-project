@@ -16,10 +16,8 @@ node('linux') {
    } catch (Exception e) {
   currentBuild.result = 'FAILURE'   
 } finally {
-    echo pwd()
-	    sh ("ls -la")
-	    sh("ls -la ../")
-    slackSend color: '#00FF00', message: 'Sent Finally'
+	def slk = load 'sample.groovy'
+	slk.slackMsg()
 }
            
 }
