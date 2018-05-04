@@ -23,7 +23,7 @@ def getUserMentionID(key){
 	//sh("cat ${slk}")
 	def slkID = sh(returnStdout: true, script: "cat mention.slack")
 	
-	def theList = [slkID] 	
+	def theList = slkID 	
 	echo theList
 	//def userMentionMap = [:]
 	//userMentionMap = slk
