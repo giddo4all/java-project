@@ -21,7 +21,7 @@ def getUserMentionID(key){
 	//def slk = load 'mention.slack'
 	def slk = readFile encoding: 'UTF-8', file: 'mention.slack'
 	echo slk
-	def userMentionMap = slk
+	def userMentionMap = [slk]
 	//def userMentionMap = slk.inject([:])
 //	def userMentionMap = [
 	//('gideon.aina@test.com'): '<@U85FWQDFW>'
