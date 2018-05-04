@@ -18,7 +18,7 @@ def getBuildStatus() {
 }
 
 def getUserMentionID(key){
-	//def slk = load 'mention.slack'
+	def slk = load 'mention.slack'
 	//def slk = readFile encoding: 'UTF-8', file: 'mention.slack'
 	//echo slk
 	//def userMentionMap = [:]
@@ -28,8 +28,8 @@ def getUserMentionID(key){
 	//('gideon.aina@test.com'): '<@U85FWQDFW>'
 //		slk
 //]
-	def referenceFile = new File('mention.slack')
-	referenceFile.inject([:]) { map, line ->
+	//def referenceFile = new File('mention.slack')
+	slk.inject([:]) { map, line ->
     	def (name, reference) = line.split(",")
     	map[name] = reference
     	map
