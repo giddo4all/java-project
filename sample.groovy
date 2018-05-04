@@ -19,9 +19,19 @@ def getBuildStatus() {
 
 def getUserMentionID(key){
 	//def slk = load 'mention.slack'
-	def slk = readFile encoding: 'UTF-8', file: 'mention.slack'
-	sh("cat ${slk}")
-	def slkID = sh(returnStdout: true, script: "cat ${slk} | grep ${key} | cut -d: -f2")
+	//def slk = readFile encoding: 'UTF-8', file: 'mention.slack'
+	//sh("cat ${slk}")
+	def slkID = sh(returnStdout: true, script: "cat mention.slack")
+	
+	def theList = slkID
+	theResult = theList.inject([:])
+	{
+    		theMap, theListItem ->
+    		def theEntry = theListItem.split(",")
+    		theMap.put(theEntry[0].trim(), theEntry[1].trim())
+    		theMap
+	}
+	println theResult
 	//echo slk
 	//def userMentionMap = [:]
 	//userMentionMap = slk
@@ -51,8 +61,6 @@ def getUserMentionID(key){
 //    theMap
 //}
 //println theResult
-return slkID
-		
-
+return theResult.get(key)
 }
 
