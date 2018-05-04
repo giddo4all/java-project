@@ -29,12 +29,26 @@ def getUserMentionID(key){
 //		slk
 //]
 	//def referenceFile = new File('mention.slack')
-	slk.inject([:]) { map, line ->
-    	def (name, reference) = line.split(",")
-    	map[name] = reference
-    	map
-	}
-	echo map
-return map.get(key)
+	//slk.inject([:]) { map, line ->
+    	//def (name, reference) = line.split(",")
+    	//map[name] = reference
+    	//map
+	//}
+	//echo map
+//return map.get(key)
+	
+	def theList = slk
+	echo slk
+	echp"%%%%%%%%%%%%%%%%"
+	//echo slk.getText()
+theResult = theList.inject([:])
+{
+    theMap, theListItem ->
+    def theEntry = theListItem.split(":")
+    theMap.put(theEntry[0].trim(), theEntry[1].trim())
+    theMap
+}
+println theResult
+return theResult.get(key)
 }
 
