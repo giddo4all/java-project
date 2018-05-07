@@ -18,7 +18,7 @@ def getBuildStatus() {
 }
 
 def getUserMentionID(key){
-	def slackID = sh (returnStdout: true, script: 'cat mention.slack | grep "^"$key":" | cut -d: -f2')trim()
+	def slackID = sh (returnStdout: true, script: 'cat mention.slack | grep ^"$key": | cut -d: -f2')trim()
 	
 	echo"&%&%&%&%&%&%& " + slackID
 	
